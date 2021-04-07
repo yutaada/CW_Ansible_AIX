@@ -1,0 +1,13 @@
+---
+- name: Update VMs
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Run update users role
+      import_role:
+        name: update_users
+
+#    - name: Configure Volume Groups
+#      import_role:
+#        name: configure_vgs
