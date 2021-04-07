@@ -4,6 +4,10 @@ users:
     user_id: 999
     user_state: present
 
-  - user_name: stuartc
+  - user_name: user1
+    user_id: 998
+    user_state: present
+  
+  - user_name: user2
     user_id: 998
     user_state: present
