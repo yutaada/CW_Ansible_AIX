@@ -1,0 +1,9 @@
+---
+users:
+  - user_name: ansible
+    user_id: 999
+    user_state: present
+
+  - user_name: stuartc
+    user_id: 998
+    user_state: present
