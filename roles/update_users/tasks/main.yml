@@ -1,0 +1,16 @@
+---
+#- name: Ensure user condition is as expected
+#  shell: "{{ check_login_policy_login_cfg_cmd }} {{ item.stanza }} -a {{ item.parameter }} | awk -F'=' '{print $2}'"
+#  loop: "{{ settings }}"
+#  loop_control:
+#    label: "{{ item.parameter }}"
+#  register: login_cfg_results
+
+- name: Ensure user condition is as expected
+  ibm.power_aix.user:
+    state: "{{ item.user_state }}"
+    name: "{{ item.user_name }}"
+    attributes:
+      id: "{{ item.user_id}}"
+  loop: "{{ users }}"
+  when: ansible_distribution == "AIX"
