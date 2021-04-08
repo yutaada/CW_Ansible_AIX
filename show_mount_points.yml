@@ -1,0 +1,19 @@
+---
+- name: Show VMs mount points
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Collecting mounts for host {{ inventory_hostname }}
+      set_fact:
+        line: "Mount point {{item.mount}} is of type {{item.fstype}} options '{{item.options}}'"
+      with_items: "{{ansible_mounts}}"
+#      loop_control:
+#       label: "Mount point {{item.mount}} is of type {{item.fstype}} options '{{item.options}}'"
+#      when:
+#        - item.fstype == "nfs3" or item.fstype == "autofs"
+      register: nfs_loop
+
+    - name: Debug - display  NFS mounts
+      debug:
+        var: line
