@@ -4,12 +4,20 @@
   gather_facts: yes
 
   tasks:
-    - name: Collecting mounts for host {{ inventory_hostname }}
+    - name: Collecting architecture type for host {{ inventory_hostname }}
       set_fact:
         arch: "VM achitecture is {{item}}"
       with_items: "{{ansible_architecture}}"
-      register: vm_arch
+    
+    - name: Collecting default IP information for host {{ inventory_hostname }}
+      set_fact:
+        default_ip: "VM achitecture is {{item.address}}"
+      with_items: "{{ansible_default_ipv4}}"  
 
-    - name: Debug - display  NFS mounts
+    - name: Show VM architecture
       debug:
         var: arch
+        
+    - name: Show VM default IP
+      debug:
+        var: default_ip
