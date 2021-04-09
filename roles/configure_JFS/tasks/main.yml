@@ -13,5 +13,7 @@
 
 - name: Mount new filesystems
   ibm.power_aix.mount:
-    mount_all: all
-  ignore_errors: True
+    filesystem: "{{ item.fs_name }}"
+    state: mount
+  loop: "{{ FSs }}"
+  when: ansible_distribution == "AIX"
