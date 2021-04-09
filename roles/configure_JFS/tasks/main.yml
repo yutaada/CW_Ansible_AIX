@@ -1,6 +1,6 @@
 ---
 # Role to configure file systems defined in the vars/main.yml file
-- name: Ensure logical volumes are configured as expected
+- name: Ensure file systems are configured as expected
   ibm.power_aix.filesystem:
     filesystem: "{{ item.fs_name }}"
     vg: "{{ item.vg_name }}"
@@ -11,6 +11,7 @@
   loop: "{{ FSs }}"
   when: ansible_distribution == "AIX"
 
-- name: Ensure logical volumes are configured as expected
+- name: Mount new filesystems
   ibm.power_aix.mount:
     mount_all: all
+  ignore_errors: True
