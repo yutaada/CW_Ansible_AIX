@@ -11,7 +11,7 @@
       
     - name: Show OS
       debug:
-         var: oslevel_info
+         var: oslevel_info.stdout
       
     - name: Collecting processor type for host {{ inventory_hostname }}
       set_fact:
