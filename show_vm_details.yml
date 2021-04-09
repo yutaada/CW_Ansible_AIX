@@ -28,6 +28,6 @@
       debug:
         msg: "VM {{ inventory_hostname }} is running on server serial no:{{ server_serial }}, type:{{ server_type }}, processor:{{ proc_type}}"
         
-    - name: Show VM default IP
+    - name: Show VM default IP information from data collected during gather facts
       debug:
-        var: default_ip
+        msg: "VM {{ inventory_hostname }} has IP {{ ansible_default_ipv4.address }} on interface {{ ansible_default_ipv4.device }}
