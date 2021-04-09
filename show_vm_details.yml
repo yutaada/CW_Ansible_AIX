@@ -1,9 +1,18 @@
 ---
+# Simple playbook to set facts about a VM from gathered facts and command execution
 - name: Show VM details
   hosts: all
   gather_facts: yes
 
   tasks:
+    - name: Collect OS version
+      command: "oslevel -s"
+      register: oslevel_info
+      
+    - name: Show OS
+      debug:
+         var: oslevel_info
+      
     - name: Collecting processor type for host {{ inventory_hostname }}
       set_fact:
         proc_type: "{{item}}"
