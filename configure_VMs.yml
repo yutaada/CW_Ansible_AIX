@@ -8,6 +8,6 @@
       import_role:
         name: update_users
 
-#    - name: Configure Volume Groups
-#      import_role:
-#        name: configure_vgs
+    - name: Configure Logical Volumes 
+      import_role:
+        name: configure_lvs
