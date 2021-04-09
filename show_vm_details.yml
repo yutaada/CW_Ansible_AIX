@@ -1,0 +1,15 @@
+---
+- name: Show VM details
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Collecting mounts for host {{ inventory_hostname }}
+      set_fact:
+        arch: "VM achitecture is {{item}}"
+      with_items: "{{ansible_architecture}}"
+      register: vm_arch
+
+    - name: Debug - display  NFS mounts
+      debug:
+        var: arch
