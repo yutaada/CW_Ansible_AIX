@@ -10,6 +10,6 @@ FSs:
   - fs_name: "/test_fs2"
     fs_type: jfs2
     vg_name: rootvg
-    fs_state: present
+    fs_state: absent
     fs_size: 64M
     fs_auto_mount: true
