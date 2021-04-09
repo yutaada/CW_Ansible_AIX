@@ -7,6 +7,7 @@
     fs_type: "{{ item.fs_type }}"
     attributes: "size={{ item.fs_size}}"
     state: "{{ item.fs_state }}"
+    auto_mount: "{{ item.fs_auto_mount }}"
   loop: "{{ FSs }}"
   when: ansible_distribution == "AIX"
 
