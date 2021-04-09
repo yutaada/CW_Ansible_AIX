@@ -1,0 +1,15 @@
+---
+Lvs:
+  - vg_name: data_vg
+    vg_pv_count: 1
+    vg_pvs: "hdisk1"
+    vg_state: present
+    vg_auto_on: yes
+    force: yes
+
+  - vg_name: test_vg
+    vg_pv_count: 1
+    vg_pvs: "hdisk2"
+    vg_state: present
+    vg_auto_on: yes
+    force: yes
