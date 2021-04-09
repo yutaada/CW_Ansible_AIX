@@ -24,9 +24,9 @@
         default_ip: "{{item}}"
       with_items: "{{ansible_default_ipv4.address}}"  
 
-    - name: Show VM architecture
+    - name: Show VM host information from facts gathered in this playbook
       debug:
-        msg: "VM {{ inventory_hostname }} has a default IP of {{ default_ip }} and is running on server {{ server_serial }} type {{ server_type }}"
+        msg: "VM {{ inventory_hostname }} is running on server serial no:{{ server_serial }}, type:{{ server_type }}, processor:{{ proc_type}}"
         
     - name: Show VM default IP
       debug:
