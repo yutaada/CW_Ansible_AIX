@@ -10,4 +10,4 @@
 
     - name: Configure Logical Volumes 
       import_role:
-        name: configure_lvs
+        name: configure_LVs
