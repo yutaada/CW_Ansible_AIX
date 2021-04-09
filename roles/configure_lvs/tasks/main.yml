@@ -4,7 +4,7 @@
   ibm.power_aix.lvol:
     lv: "{{ item.lv_name }}"
     vg: "{{ item.vg_name }}"
-    size: "{{ item.lv_size }}"
+    num_of_logical_partitions: "{{ item.lv_partitions }}"
     state: "{{ item.lv_state }}"
   loop: "{{ LVs }}"
   when: ansible_distribution == "AIX"
