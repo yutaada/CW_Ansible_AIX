@@ -1,6 +1,6 @@
 ---
 # Role to configure Logical Volumes defined in the vars/main.yml file
-- name: Ensure user condition is as expected
+- name: Ensure logical volumes are configured as expected
   ibm.power_aix.lvol:
     state: "{{ item.lv_state }}"
     lv_name: "{{ item.lv_name }}"
