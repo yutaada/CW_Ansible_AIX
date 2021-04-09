@@ -1,0 +1,4 @@
+ibm.power_aix.lvol:
+    vg: test1vg
+    lv: test1lv
+    size: 64M
