@@ -5,11 +5,11 @@
   gather_facts: yes
 
   tasks:
-    - name: Collect OS version
+    - name: Collect OS version for host {{ inventory_hostname }}
       command: "oslevel -s"
       register: oslevel_info
       
-    - name: set os fact
+    - name: Set os_level fact from registered output
       set_fact:
          os_level: "{{ oslevel_info.stdout }}"
       
