@@ -6,28 +6,27 @@
   tasks:
     - name: Collecting processor type for host {{ inventory_hostname }}
       set_fact:
-        proc_type: "VM processor type is {{item}}"
+        proc_type: "{{item}}"
       with_items: "{{ansible_processor}}"
 
     - name: Collecting server type for host {{ inventory_hostname }}
       set_fact:
-        server_type: "VM is currently hosted on server of type {{item}}"
+        server_type: "{{item}}"
       with_items: "{{ansible_product_name}}"
 
     - name: Collecting hosting server serial number for host {{ inventory_hostname }}
       set_fact:
-        server_serial: "VM is currently hosted on server {{item}}"
+        server_serial: "{{item}}"
       with_items: "{{ansible_product_serial}}"
     
     - name: Collecting default IP information for host {{ inventory_hostname }}
       set_fact:
-        default_ip: "VM default IP is {{item}}"
+        default_ip: "{{item}}"
       with_items: "{{ansible_default_ipv4.address}}"  
 
     - name: Show VM architecture
       debug:
-        var: proc_type
-        var: server_type
+        msg: "VM {{ inventory_hostname }} has a default IP of {{ default_ip }} and is running on server {{ server_serial }} type {{ server_type }}"
         
     - name: Show VM default IP
       debug:
