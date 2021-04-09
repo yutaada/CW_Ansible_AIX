@@ -14,7 +14,7 @@
     - name: Set os_level fact from registered output
       set_fact:
          os_level: "{{ oslevel_info.stdout }}"
-       when:
+      when:
         - ansible_system == "AIX"
         
     - name: Collecting processor type for host {{ inventory_hostname }}
