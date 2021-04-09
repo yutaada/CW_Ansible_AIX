@@ -30,4 +30,4 @@
         
     - name: Show VM default IP information from data collected during gather facts
       debug:
-        msg: "VM {{ inventory_hostname }} has IP {{ ansible_default_ipv4.address }} on interface {{ ansible_default_ipv4.device }}
+        msg: "VM {{ inventory_hostname }} has IP {{ ansible_default_ipv4.address }} on interface {{ ansible_default_ipv4.device }}"
