@@ -9,17 +9,9 @@
       command: "oslevel -s"
       register: oslevel_info
       
-    - name: Show OS
-      debug:
-         var: oslevel_info.stdout
-         
     - name: set os fact
       set_fact:
          os_level: "{{ oslevel_info.stdout }}"
-         
-    - name:
-      debug:
-        var: os_level
       
     - name: Collecting processor type for host {{ inventory_hostname }}
       set_fact:
@@ -48,3 +40,7 @@
     - name: Show VM default IP information from data collected during gather facts
       debug:
         msg: "VM {{ inventory_hostname }} has IP {{ ansible_default_ipv4.address }} on interface {{ ansible_default_ipv4.device }}"
+        
+    - name: Show VM OS level information collected using the command module
+      debug:
+        msg: "VM {{ inventory_hostname}} is running AIX version {{ os_level }}"
