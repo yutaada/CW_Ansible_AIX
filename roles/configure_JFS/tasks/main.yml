@@ -5,8 +5,7 @@
     filesystem: "{{ item.fs_name }}"
     vg: "{{ item.vg_name }}"
     fs_type: "{{ item.fs_type }}"
-    attributes:
-      size: "{{ item.fs_size}}"
+    attributes: "size="{{ item.fs_size}}""
     state: "{{ item.fs_state }}"
   loop: "{{ FSs }}"
   when: ansible_distribution == "AIX"
