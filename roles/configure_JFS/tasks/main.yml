@@ -9,3 +9,7 @@
     state: "{{ item.fs_state }}"
   loop: "{{ FSs }}"
   when: ansible_distribution == "AIX"
+
+- name: Ensure logical volumes are configured as expected
+  ibm.power_aix.mount:
+    mount_all: all
