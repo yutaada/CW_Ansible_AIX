@@ -1,0 +1,7 @@
+---
+FSs:
+  - fs_name: "/test_fs1"
+    fs_type: jfs2
+    vg_name: rootvg
+    fs_state: present
+    fs_size: 128M
