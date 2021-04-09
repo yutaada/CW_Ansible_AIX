@@ -15,7 +15,7 @@
          
     - name: set os fact
       set_fact:
-         os_level: {{ oslevel_info.stdout }}
+         os_level: "{{ oslevel_info.stdout }}"
          
     - name:
       debug:
