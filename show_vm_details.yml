@@ -21,8 +21,8 @@
     
     - name: Collecting default IP information for host {{ inventory_hostname }}
       set_fact:
-        default_ip: "VM default IP is {{item.address | list}}"
-      with_items: "{{ansible_default_ipv4}}"  
+        default_ip: "VM default IP is {{item}}"
+      with_items: "{{ansible_default_ipv4.address}}"  
 
     - name: Show VM architecture
       debug:
