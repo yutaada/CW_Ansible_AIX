@@ -1,4 +1,14 @@
-
+---
+# Role to configure file systems defined in the vars/main.yml file
+- name: Ensure logical volumes are configured as expected
+  ibm.power_aix.filesystem:
+    filesystem: "{{ item.fs_name }}"
+    vg: "{{ item.vg_name }}"
+    fs_type: "{{ item.fs_type }}"
+    fssize: "{{ item.lv_stripe_size }}"
+    state: "{{ item.fs_state }}"
+  loop: "{{ LVs }}"
+  when: ansible_distribution == "AIX"
 
 - name: Creation of a JFS2 filesystem
   ibm.power_aix.filesystem:
