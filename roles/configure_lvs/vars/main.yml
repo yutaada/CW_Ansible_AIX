@@ -4,14 +4,17 @@ LVs:
     lv_partitions: 4
     vg_name: rootvg
     lv_state: present
+    lv_stripe_size: 64K
 
   - lv_name: test_lv2
     lv_partitions: 2
     vg_name: rootvg
     lv_state: present
+    lv_stripe_size: 64K
     
   - lv_name: test_lv3
     lv_partitions: 1
     vg_name: rootvg
     lv_state: present
+    lv_stripe_size: 64K
     
