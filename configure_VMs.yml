@@ -8,6 +8,6 @@
       import_role:
         name: update_users
 
-    - name: Configure Logical Volumes 
+    - name: Configure File Systems
       import_role:
-        name: configure_lvs
+        name: configure_JFS
