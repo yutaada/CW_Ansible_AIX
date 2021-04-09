@@ -1,4 +1,5 @@
 ---
+# Role to configure users defined in the vars/main.yml file
 - name: Ensure user condition is as expected
   ibm.power_aix.user:
     state: "{{ item.user_state }}"
