@@ -14,7 +14,9 @@
     - name: Set os_level fact from registered output
       set_fact:
          os_level: "{{ oslevel_info.stdout }}"
-      
+       when:
+        - ansible_system == "AIX"
+        
     - name: Collecting processor type for host {{ inventory_hostname }}
       set_fact:
         proc_type: "{{item}}"
@@ -46,3 +48,5 @@
     - name: Show VM OS level information collected using the command module
       debug:
         msg: "VM {{ inventory_hostname}} is running AIX version {{ os_level }}"
+      when:
+        - ansible_system == "AIX"
