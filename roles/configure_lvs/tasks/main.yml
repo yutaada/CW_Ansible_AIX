@@ -2,10 +2,10 @@
 # Role to configure Logical Volumes defined in the vars/main.yml file
 - name: Ensure logical volumes are configured as expected
   ibm.power_aix.lvol:
+    lv: "{{ item.lv_name }}"
+    vg: "{{ item.vg_name }}"
+    size: "{{ item.lv_size }}"
     state: "{{ item.lv_state }}"
-    lv_name: "{{ item.lv_name }}"
-    vg_name: "{{ item.vg_name }}"
-    lv_size: "{{ item.lv_size }}"
   loop: "{{ LVs }}"
   when: ansible_distribution == "AIX"
 
