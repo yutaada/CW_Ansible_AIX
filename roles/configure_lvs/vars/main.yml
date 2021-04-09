@@ -1,15 +1,17 @@
 ---
-Lvs:
-  - vg_name: data_vg
-    vg_pv_count: 1
-    vg_pvs: "hdisk1"
-    vg_state: present
-    vg_auto_on: yes
-    force: yes
+LVs:
+  - lv_name: test_lv1
+    lv_size: 128M
+    vg_name: rootvg
+    lv_state: present
 
-  - vg_name: test_vg
-    vg_pv_count: 1
-    vg_pvs: "hdisk2"
-    vg_state: present
-    vg_auto_on: yes
-    force: yes
+  - lv_name: test_lv2
+    lv_size: 64M
+    vg_name: rootvg
+    lv_state: present
+    
+  - lv_name: test_lv3
+    lv_size: 32M
+    vg_name: rootvg
+    lv_state: present
+    
