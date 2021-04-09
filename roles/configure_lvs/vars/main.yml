@@ -1,17 +1,17 @@
 ---
 LVs:
   - lv_name: test_lv1
-    lv_size: 128M
+    lv_partitions: 4
     vg_name: rootvg
     lv_state: present
 
   - lv_name: test_lv2
-    lv_size: 64M
+    lv_partitions: 2
     vg_name: rootvg
     lv_state: present
     
   - lv_name: test_lv3
-    lv_size: 32M
+    lv_partitions: 1
     vg_name: rootvg
     lv_state: present
     
