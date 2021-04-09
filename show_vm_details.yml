@@ -4,10 +4,20 @@
   gather_facts: yes
 
   tasks:
-    - name: Collecting architecture type for host {{ inventory_hostname }}
+    - name: Collecting processor type for host {{ inventory_hostname }}
       set_fact:
-        arch: "VM achitecture is {{item}}"
-      with_items: "{{ansible_architecture}}"
+        proc_type: "VM processor type is {{item}}"
+      with_items: "{{ansible_processor}}"
+
+    - name: Collecting server type for host {{ inventory_hostname }}
+      set_fact:
+        server_type: "VM is currently hosted on server of type {{item}}"
+      with_items: "{{ansible_product_name}}"
+
+    - name: Collecting hosting server serial number for host {{ inventory_hostname }}
+      set_fact:
+        server_serial: "VM is currently hosted on server {{item}}"
+      with_items: "{{ansible_product_serial}}"
     
     - name: Collecting default IP information for host {{ inventory_hostname }}
       set_fact:
@@ -16,7 +26,8 @@
 
     - name: Show VM architecture
       debug:
-        var: arch
+        var: proc_type
+        var: server_type
         
     - name: Show VM default IP
       debug:
