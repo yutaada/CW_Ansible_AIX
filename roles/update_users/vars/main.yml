@@ -10,4 +10,4 @@ users:
   
   - user_name: user2
     user_id: 997
-    user_state: absent
+    user_state: present
